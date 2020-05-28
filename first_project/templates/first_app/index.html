@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django Level 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/test.css" %}">
+  </head>
+  <body>
+    <h1> <a href="{% url 'first_app:index' %}">Click</a> </h1>
+    <h1> <a href="{% url 'admin:index' %}">Go to Admin</a> </h1>
+<h1>hi Wlcome to Django Level Two</h1>
+<h1>Go to /formpage for fillings forms</h1>
+<h2>Here are your access records</h2>
+<div class="container">
+  <div class="jumbotron">
+
+
+  {% if access_records %}
+  <table>
+    <thead>
+      <th>Site Name</th>
+      <th>Date Accessed</th>
+    </thead>
+
+    {% for acc in access_records %}
+    <tr>
+      <td>{{ acc.name }}</td>
+      <td>{{ acc.date }}</td>
+    </tr>
+
+    {%  endfor %}
+  </table>
+
+  {% else %}
+  <p>NO ACCESS Records Found</p>
+
+  {% endif %}
+
+
+</div>
+</div>
+  </body>
+</html>

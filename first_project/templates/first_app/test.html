@@ -1,0 +1,9 @@
+{% extends "first_app/base.html" %}
+{% load my_extras %}
+
+  {% block body_block %}
+    <h1>Welcome to test</h1>
+    <h2>This is the test page showing</h2>
+    <h1>{{ text|cat:"hello" }}
+    {{ number|add:"99" }}</h1>
+  {% endblock %}
